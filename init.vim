@@ -1,12 +1,5 @@
 syntax enable
 
-" ========== colorschemes
-" set termguicolors
-
-colorscheme onedark
-" colorscheme NeoSolarized
-" colorscheme monokai
-
 " ========== general options
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
@@ -46,6 +39,9 @@ else
   set signcolumn=yes
 endif
 
+
+" ========== plugins
+
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
@@ -60,14 +56,190 @@ Plug 'sheerun/vim-polyglot'
 " bringing Sublime Text's awesome multiple selection feature into Vim
 Plug 'terryma/vim-multiple-cursors'
 
+" Insert or delete brackets, parens, quotes in pair. 
+Plug 'jiangmiao/auto-pairs'
+
+" A light and configurable statusline/tabline plugin for Vim
+Plug 'itchyny/lightline.vim'
+
+" colorscheme vim-deus
+Plug 'ajmwagar/vim-deus'
+
+" colorscheme NeoSolarized
+Plug 'overcache/NeoSolarized'
+
+" An efficient fuzzy finder that helps to locate files, buffers, mrus, gtags, etc. on the fly.
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+
+" colorscheme gruvbox
+Plug 'morhetz/gruvbox'
+
+Plug 'ayu-theme/ayu-vim'
+
+" Plug vim-go
+" Plug 'fatih/vim-go', { 'for': ['go', 'vim-plug'], 'tag': '*' }
+
+" vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
+
+" A well-integrated, low-configuration buffer list that lives in the tabline
+Plug 'ap/vim-buftabline'
+
+" A Vim wrapper for running tests on different granularities.
+Plug 'vim-test/vim-test'
+
 " Initialize plugin system
 call plug#end()
 
+" ===
+" === vim-test
+" ===
+let test#strategy = "neovim"
+let g:test#neovim#start_normal = 1 " If using neovim strategy
+let g:test#basic#start_normal = 1 " If using basic strategy
+
+
+" ========== colorschemes
+
+" set t_Co=256
+" set termguicolors
+" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" set background=dark    " Setting dark mode
+" colorscheme deus
+" let g:deus_termcolors=256
+
+
+" colorscheme onedark
+
+" colorscheme gruvbox
+" set background=dark
+
+" colorscheme monokai_pro
+
+" colorscheme monokai
+" let g:molokai_original = 1
+" let g:rehash256 = 1
+
+" set termguicolors     " enable true colors support
+" let ayucolor="light"  " for light version of theme
+" let ayucolor="mirage" " for mirage version of theme
+" let ayucolor="dark"   " for dark version of theme
+" colorscheme ayu
+
+let g:neosolarized_italic = 1
+set termguicolors
+set background=dark
+colorscheme NeoSolarized
+
+let g:coc_global_extensions = [
+	\ 'coc-json',
+    \ 'coc-pyright',
+    \ 'coc-explorer']
+
 let mapleader=" "
 
+let g:AutoPairsShortcutToggle = '<another key>'
+
+
+" ===
+" === Yggdroot/LeaderF
+" ===
+" configurations for plugin 'Yggdroot/LeaderF'
+" don't show the help in normal mode
+let g:Lf_HideHelp = 1
+let g:Lf_UseCache = 0
+let g:Lf_UseVersionControlTool = 0
+let g:Lf_IgnoreCurrentBufferName = 1
+" popup mode
+" let g:Lf_WindowPosition = 'popup'
+" let g:Lf_PreviewInPopup = 1
+let g:Lf_ShortcutF = '<C-P>'
+noremap <leader>G :<C-U><C-R>=printf("Leaderf! rg -e %s", expand("<cword>"))<CR>
+
+
+" ===
+" === golang syntax highlight
+" ===
+let g:go_echo_go_info = 0
+let g:go_doc_popup_window = 1
+let g:go_def_mapping_enabled = 0
+let g:go_template_autocreate = 0
+let g:go_textobj_enabled = 0
+let g:go_auto_type_info = 0
+let g:go_def_mapping_enabled = 0
+let g:go_highlight_array_whitespace_error = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_chan_whitespace_error = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 0
+let g:go_highlight_format_strings = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_space_tab_error = 1
+let g:go_highlight_string_spellcheck = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_trailing_whitespace_error = 1
+let g:go_highlight_types = 1
+let g:go_highlight_variable_assignments = 0
+let g:go_highlight_variable_declarations = 0
+let g:go_doc_keywordprg_enabled = 0
+
+
+" ===
+" === python syntax highlight
+" ===
+augroup python
+    autocmd!
+    autocmd FileType python
+                \   syn keyword pythonSelf self
+                \ | highlight def link pythonSelf Special
+                \ |  syn keyword pythonCls cls
+                \ | highlight def link pythonCls Special
+augroup end
+
+
+" ==
+" == GitGutter
+" ==
+" let g:gitgutter_signs = 0
+let g:gitgutter_sign_allow_clobber = 0
+let g:gitgutter_map_keys = 0
+let g:gitgutter_override_sign_column_highlight = 0
+let g:gitgutter_preview_win_floating = 1
+let g:gitgutter_sign_added = '▎'
+let g:gitgutter_sign_modified = '░'
+let g:gitgutter_sign_removed = '▏'
+let g:gitgutter_sign_removed_first_line = '▔'
+let g:gitgutter_sign_modified_removed = '▒'
+" autocmd BufWritePost * GitGutter
+" nnoremap <LEADER>gf :GitGutterFold<CR>
+" nnoremap H :GitGutterPreviewHunk<CR>
+nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
+nnoremap <LEADER>g= :GitGutterNextHunk<CR>
+
+" ==
+" == lightline
+" ==
+set showtabline=2
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'absolutepath', 'modified' ] ]
+      \ },
+      \ }
+
+
+" ========== Mappings for coc
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
+
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -142,6 +314,8 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
+" Remap keys for applying code to current buffer
+nmap <leader>le <Plug>(coc-codelens-action)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
@@ -187,7 +361,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Show all diagnostics.
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+" nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
 nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
@@ -201,5 +375,19 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+" Mappings for coc-explorer
+nnoremap <space>e :CocCommand explorer<CR>
+
 " ============= move
+
+
+" ============= python
+autocmd FileType python let b:coc_root_patterns = ['.git', '.env', 'pyrightconfig.json']
+
+" Copy to system clipboard
+vnoremap Y "+y
+
+" tab
+noremap <Tab> :bn<CR>
+noremap <S-Tab> :bp<CR>
 
