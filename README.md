@@ -1,7 +1,10 @@
-### neovim
-This nvim configuration REQUIRES NeoVim 0.5.0+
+### Prerequisite
+- This nvim configuration REQUIRES NeoVim 0.5.0+
+- git
+- python2/python3
+- nodejs >= 12.12
 
-### vim-plug
+### How to Install vim-plug
 
 ### Installation
 
@@ -52,8 +55,9 @@ iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
     ni "$(@($env:XDG_DATA_HOME, $env:LOCALAPPDATA)[$null -eq $env:XDG_DATA_HOME])/nvim-data/site/autoload/plug.vim" -Force
 ```
 
-### after installation
+### After installation
 - Install pip, and do pip install --user pynvim
 - Install pip3, and do pip3 install --user pynvim
 - Install node, and do npm install -g neovim
-- Install nerd-fonts (actually it's optional but it looks real good) 
+- Install [ripgrep](https://github.com/BurntSushi/ripgrep)
+
