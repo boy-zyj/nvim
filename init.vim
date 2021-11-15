@@ -53,6 +53,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " A collection of language packs for Vim.
 Plug 'sheerun/vim-polyglot'
 
+" This is a Vim plugin that provides syntax highlighting for Java. This syntax highlighting is better than the default.
+Plug 'uiiaoo/java-syntax.vim'
+
 " bringing Sublime Text's awesome multiple selection feature into Vim
 Plug 'terryma/vim-multiple-cursors'
 
@@ -76,9 +79,6 @@ Plug 'morhetz/gruvbox'
 
 Plug 'ayu-theme/ayu-vim'
 
-" Plug vim-go
-" Plug 'fatih/vim-go', { 'for': ['go', 'vim-plug'], 'tag': '*' }
-
 " vim-gitgutter'
 Plug 'airblade/vim-gitgutter'
 
@@ -87,6 +87,9 @@ Plug 'ap/vim-buftabline'
 
 " A Vim wrapper for running tests on different granularities.
 Plug 'vim-test/vim-test'
+
+" Fugitive is the premier Vim plugin for Git.
+Plug 'tpope/vim-fugitive'
 
 " Initialize plugin system
 call plug#end()
@@ -134,6 +137,8 @@ colorscheme NeoSolarized
 
 let g:coc_global_extensions = [
 	\ 'coc-json',
+	\ 'coc-tsserver',
+	\ 'coc-java',
     \ 'coc-pyright',
     \ 'coc-explorer']
 
