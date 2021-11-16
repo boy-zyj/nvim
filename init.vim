@@ -39,6 +39,7 @@ else
   set signcolumn=yes
 endif
 
+set mouse=a
 
 " ========== plugins
 
