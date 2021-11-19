@@ -3,6 +3,7 @@
 - git
 - python2/python3
 - nodejs >= 12.12
+- nvim-treesitter: A C compiler in your path and libstdc++ installed ((Windows users please read this!)[https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support])
 
 ### How to Install vim-plug
 
