@@ -52,10 +52,13 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " A collection of language packs for Vim.
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 
 " This is a Vim plugin that provides syntax highlighting for Java. This syntax highlighting is better than the default.
-Plug 'uiiaoo/java-syntax.vim'
+" Plug 'uiiaoo/java-syntax.vim'
+
+" Treesitter and nvim-treesitter highlighting are an experimental feature of nightly versions of Neovim
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
 " bringing Sublime Text's awesome multiple selection feature into Vim
 Plug 'terryma/vim-multiple-cursors'
@@ -163,6 +166,25 @@ let g:Lf_IgnoreCurrentBufferName = 1
 let g:Lf_ShortcutF = '<C-P>'
 noremap <leader>G :<C-U><C-R>=printf("Leaderf! rg -e %s", expand("<cword>"))<CR>
 
+" ===
+" === vim-test
+" ===
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+ensure_installed = {"python", "go", "java"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "c", "rust" },  -- list of language that will be disabled
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
+
 
 " ===
 " === golang syntax highlight
@@ -199,14 +221,14 @@ let g:go_doc_keywordprg_enabled = 0
 " ===
 " === python syntax highlight
 " ===
-augroup python
-    autocmd!
-    autocmd FileType python
-                \   syn keyword pythonSelf self
-                \ | highlight def link pythonSelf Special
-                \ |  syn keyword pythonCls cls
-                \ | highlight def link pythonCls Special
-augroup end
+" augroup python
+"     autocmd!
+"     autocmd FileType python
+"                 \   syn keyword pythonSelf self
+"                 \ | highlight def link pythonSelf Special
+"                 \ |  syn keyword pythonCls cls
+"                 \ | highlight def link pythonCls Special
+" augroup end
 
 
 " ==
@@ -236,7 +258,10 @@ let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'absolutepath', 'modified' ] ]
+      \             [ 'gitbranch', 'readonly', 'absolutepath', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
       \ },
       \ }
 
