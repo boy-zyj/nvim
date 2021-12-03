@@ -75,11 +75,14 @@ Plug 'ajmwagar/vim-deus'
 " colorscheme NeoSolarized
 Plug 'overcache/NeoSolarized'
 
-" An efficient fuzzy finder that helps to locate files, buffers, mrus, gtags, etc. on the fly.
-Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+" Oceanic-Next.vim is a neovim theme inspired by Oceanic Next for Sublime
+" Plug 'mhartington/oceanic-next'
 
 " colorscheme gruvbox
 Plug 'morhetz/gruvbox'
+
+" An efficient fuzzy finder that helps to locate files, buffers, mrus, gtags, etc. on the fly.
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
 Plug 'ayu-theme/ayu-vim'
 
@@ -94,6 +97,9 @@ Plug 'vim-test/vim-test'
 
 " Fugitive is the premier Vim plugin for Git.
 Plug 'tpope/vim-fugitive'
+
+" The plug-in visualizes undo history and makes it easier to browse and switch between different undo branches
+Plug 'mbbill/undotree'
 
 " Initialize plugin system
 call plug#end()
@@ -139,6 +145,14 @@ set termguicolors
 set background=dark
 colorscheme NeoSolarized
 
+" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+" if (has("termguicolors"))
+"  set termguicolors
+" endif
+" syntax enable
+" colorscheme OceanicNext
+
+
 let g:coc_global_extensions = [
 	\ 'coc-json',
 	\ 'coc-tsserver',
@@ -164,14 +178,14 @@ let g:Lf_IgnoreCurrentBufferName = 1
 " let g:Lf_WindowPosition = 'popup'
 " let g:Lf_PreviewInPopup = 1
 let g:Lf_ShortcutF = '<C-P>'
-noremap <leader>G :<C-U><C-R>=printf("Leaderf! rg -e %s", expand("<cword>"))<CR>
+noremap <leader>G :<C-U><C-R>=printf("Leaderf! rg -F %s", expand("<cword>"))<CR>
 
 " ===
 " === vim-test
 " ===
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-ensure_installed = {"python", "go", "java"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+ensure_installed = {"python", "go", "java", "javascript"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   highlight = {
     enable = true,              -- false will disable the whole extension
@@ -264,6 +278,29 @@ let g:lightline = {
       \   'gitbranch': 'FugitiveHead'
       \ },
       \ }
+
+" ==
+" == undotree
+" ==
+if has("persistent_undo")
+   let target_path = expand('~/.undodir')
+
+    " create the directory and any parent directories
+    " if the location does not exist.
+    if !isdirectory(target_path)
+        call mkdir(target_path, "p", 0700)
+    endif
+
+    let &undodir=target_path
+    set undofile
+endif
+nnoremap U :UndotreeToggle<CR>
+let g:undotree_DiffAutoOpen = 1
+let g:undotree_SetFocusWhenToggle = 1
+let g:undotree_ShortIndicators = 1
+let g:undotree_WindowLayout = 2
+let g:undotree_DiffpanelHeight = 8
+let g:undotree_SplitWidth = 24
 
 
 " ========== Mappings for coc
@@ -411,7 +448,11 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 nnoremap <space>e :CocCommand explorer<CR>
 
 " ============= move
-
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 
 " ============= python
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env', 'pyrightconfig.json']
