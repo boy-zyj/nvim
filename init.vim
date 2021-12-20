@@ -233,19 +233,6 @@ let g:go_highlight_variable_declarations = 0
 let g:go_doc_keywordprg_enabled = 0
 
 
-" ===
-" === python syntax highlight
-" ===
-" augroup python
-"     autocmd!
-"     autocmd FileType python
-"                 \   syn keyword pythonSelf self
-"                 \ | highlight def link pythonSelf Special
-"                 \ |  syn keyword pythonCls cls
-"                 \ | highlight def link pythonCls Special
-" augroup end
-
-
 " ==
 " == GitGutter
 " ==
