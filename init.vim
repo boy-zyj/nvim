@@ -54,11 +54,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " A collection of language packs for Vim.
 " Plug 'sheerun/vim-polyglot'
 
-" This is a Vim plugin that provides syntax highlighting for Java. This syntax highlighting is better than the default.
-" Plug 'uiiaoo/java-syntax.vim'
-
 " Treesitter and nvim-treesitter highlighting are an experimental feature of nightly versions of Neovim
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+
+" Treesitter
+Plug 'nvim-treesitter/playground'
 
 " bringing Sublime Text's awesome multiple selection feature into Vim
 Plug 'terryma/vim-multiple-cursors'
@@ -144,6 +144,7 @@ let g:neosolarized_italic = 1
 set termguicolors
 set background=dark
 colorscheme NeoSolarized
+hi Normal ctermfg=252 ctermbg=none
 
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " if (has("termguicolors"))
@@ -185,11 +186,11 @@ noremap <leader>G :<C-U><C-R>=printf("Leaderf! rg -F %s", expand("<cword>"))<CR>
 " ===
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-ensure_installed = {"python", "go", "java", "javascript"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+ensure_installed = {"python", "go", "java", "javascript", "json", "c", "cpp"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   highlight = {
     enable = true,              -- false will disable the whole extension
-    disable = { "c", "rust" },  -- list of language that will be disabled
+    disable = { "rust" },  -- list of language that will be disabled
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
     -- Using this option may slow down your editor, and you may see some duplicate highlights.
@@ -477,6 +478,10 @@ tnoremap <C-O> <C-\><C-N><C-O>
 " ===
 " Opening a terminal window
 noremap <LEADER>/ :set splitbelow<CR>:split<CR>:res +10<CR>:term<CR>
+
+" Paste keybinds
+nnoremap P "+p
+vnoremap P "+p
 
 
 """"""""""""""""""""""""""""""
