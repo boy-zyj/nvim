@@ -5,6 +5,9 @@ syntax enable
 " unicode characters in the file autoload/float.vim
 set encoding=utf-8
 
+" fileformats
+set fileformats=unix,dos
+
 " TextEdit might fail if hidden is not set.
 set hidden
 
