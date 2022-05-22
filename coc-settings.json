@@ -11,17 +11,14 @@
        "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
        "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
     },
-    "go": {
+    "golang": {
       "command": "gopls",
-      "rootPatterns": ["go.mod"],
+      "rootPatterns": ["go.work", "go.mod", ".vim/", ".git/", ".hg/"],
       "trace.server": "messages",
       "disableWorkspaceFolders": true,
       "filetypes": ["go"],
       "initializationOptions": {
-		"usePlaceholders": true,
-        "experimentalWorkspaceModule": true,
-        "allowModfileModifications": true,
-        "experimentalUseInvalidMetadata": true
+        "usePlaceholders": true
       }
     }
   },
