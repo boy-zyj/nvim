@@ -1,5 +1,16 @@
 {
   "languageserver": {
+    "bash": {
+      "filetypes": ["sh"],
+	  "command": "bash-language-server",
+	  "args": ["start"],
+	  "ignoredRootPaths": []
+    },
+    "clangd": {
+       "command": "clangd",
+       "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+       "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+    },
     "go": {
       "command": "gopls",
       "rootPatterns": ["go.mod"],
@@ -14,6 +25,8 @@
       }
     }
   },
+  "pyright.enable": true,
+  "jedi.enable": false,
   "explorer.file.hiddenRules": {
     "extensions": [
       "o",
@@ -27,5 +40,6 @@
       "__pycache__"
     ]
   },
+  "python.formatting.autopep8Path": "/Users/yao/Library/Python/3.9/bin/autopep8",
   "python.venvPath": "/Users/yao/.venv/"
 }
