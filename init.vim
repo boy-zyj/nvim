@@ -267,7 +267,7 @@ let g:gitgutter_sign_removed = '▏'
 let g:gitgutter_sign_removed_first_line = '▔'
 let g:gitgutter_sign_modified_removed = '▒'
 highlight! link SignColumn LineNr
-highlight SignColumn guibg=whatever ctermbg=whatever
+silent! highlight SignColumn guibg=whatever ctermbg=whatever
 " autocmd BufWritePost * GitGutter
 " nnoremap <LEADER>gf :GitGutterFold<CR>
 " nnoremap H :GitGutterPreviewHunk<CR>
