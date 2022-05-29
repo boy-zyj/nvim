@@ -91,6 +91,8 @@ Plug 'morhetz/gruvbox'
 " telescope.nvim is a highly extendable fuzzy finder over lists
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-project.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
 
 Plug 'ayu-theme/ayu-vim'
 
@@ -193,10 +195,36 @@ let g:AutoPairsShortcutToggle = '<another key>'
 " === nvim-telescope/telescope.nvim
 " ===
 " Using Lua functions
+
+lua <<EOF
+-- telescope setup
+require('telescope').setup {
+  extensions = {
+    project = {
+      base_dirs = {
+        '~/Documents/github',
+        -- {'~/dev/src2'},
+        -- {'~/dev/src3', max_depth = 4},
+        -- {path = '~/dev/src4'},
+        -- {path = '~/dev/src5', max_depth = 2},
+      },
+      -- hidden_files = true, -- default: false
+      theme = "dropdown",
+    }
+  }
+}
+
+-- telescope load extensions
+require'telescope'.load_extension('project')
+
+EOF
+
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>ft <cmd>lua require('telescope.builtin').treesitter()<cr>
+nnoremap <leader>fm <cmd>lua require('telescope.builtin').marks()<cr>
+nnoremap <leader>fp <cmd>lua require'telescope'.extensions.project.project{ display_type = 'full' }<cr>
 nnoremap <leader>f? <cmd>lua require('telescope.builtin').builtin()<cr>
 
 
