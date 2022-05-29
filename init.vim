@@ -85,7 +85,11 @@ Plug 'overcache/NeoSolarized'
 Plug 'morhetz/gruvbox'
 
 " An efficient fuzzy finder that helps to locate files, buffers, mrus, gtags, etc. on the fly.
-Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+" Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+
+" telescope.nvim is a highly extendable fuzzy finder over lists
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'ayu-theme/ayu-vim'
 
@@ -174,15 +178,25 @@ let g:AutoPairsShortcutToggle = '<another key>'
 " ===
 " configurations for plugin 'Yggdroot/LeaderF'
 " don't show the help in normal mode
-let g:Lf_HideHelp = 1
-let g:Lf_UseCache = 0
-let g:Lf_UseVersionControlTool = 0
-let g:Lf_IgnoreCurrentBufferName = 1
-" popup mode
-" let g:Lf_WindowPosition = 'popup'
-" let g:Lf_PreviewInPopup = 1
-let g:Lf_ShortcutF = '<C-P>'
-noremap <leader>G :<C-U><C-R>=printf("Leaderf! rg -F %s", expand("<cword>"))<CR>
+" let g:Lf_HideHelp = 1
+" let g:Lf_UseCache = 0
+" let g:Lf_UseVersionControlTool = 0
+" let g:Lf_IgnoreCurrentBufferName = 1
+" " popup mode
+" " let g:Lf_WindowPosition = 'popup'
+" " let g:Lf_PreviewInPopup = 1
+" let g:Lf_ShortcutF = '<C-P>'
+" noremap <leader>G :<C-U><C-R>=printf("Leaderf! rg -F %s", expand("<cword>"))<CR>
+
+" ===
+" === nvim-telescope/telescope.nvim
+" ===
+" Using Lua functions
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>ft <cmd>lua require('telescope.builtin').treesitter()<cr>
+
 
 " ===
 " === vim-test
