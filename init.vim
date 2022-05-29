@@ -35,12 +35,13 @@ set relativenumber
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-if has("nvim-0.5.0") || has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
+" if has("nvim-0.5.0") || has("patch-8.1.1564")
+"   " Recently vim can merge signcolumn and number column into one
+"   set signcolumn=number
+" else
+"   set signcolumn=yes
+" endif
+set signcolumn=yes
 
 set mouse=a
 
@@ -93,7 +94,7 @@ Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'ayu-theme/ayu-vim'
 
-" vim-gitgutter'
+" vim-gitgutter
 Plug 'airblade/vim-gitgutter'
 
 " A well-integrated, low-configuration buffer list that lives in the tabline
@@ -252,10 +253,11 @@ let g:go_doc_keywordprg_enabled = 0
 
 
 " ==
-" == GitGutter
+" == vim-gitgutter
 " ==
 " let g:gitgutter_signs = 0
 let g:gitgutter_sign_allow_clobber = 0
+let g:gitgutter_highlight_linenrs = 1
 let g:gitgutter_map_keys = 0
 let g:gitgutter_override_sign_column_highlight = 0
 let g:gitgutter_preview_win_floating = 1
@@ -264,6 +266,8 @@ let g:gitgutter_sign_modified = '░'
 let g:gitgutter_sign_removed = '▏'
 let g:gitgutter_sign_removed_first_line = '▔'
 let g:gitgutter_sign_modified_removed = '▒'
+highlight! link SignColumn LineNr
+highlight SignColumn guibg=whatever ctermbg=whatever
 " autocmd BufWritePost * GitGutter
 " nnoremap <LEADER>gf :GitGutterFold<CR>
 " nnoremap H :GitGutterPreviewHunk<CR>
