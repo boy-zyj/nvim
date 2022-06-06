@@ -1,9 +1,10 @@
 ### Prerequisite
-- This nvim configuration REQUIRES NeoVim 0.5.0+
+- This nvim configuration REQUIRES NeoVim 0.7.0+
 - git
 - python2/python3
 - nodejs >= 12.12
 - nvim-treesitter: A C compiler in your path and libstdc++ installed ((Windows users please read this!)[https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support])
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
 
 ### How to Install vim-plug
 
