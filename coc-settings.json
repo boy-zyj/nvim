@@ -1,4 +1,7 @@
 {
+  "snippets.ultisnips.directories": [
+    "UltiSnips"
+  ],
   "languageserver": {
     "bash": {
       "filetypes": ["sh"],
