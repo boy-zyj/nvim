@@ -540,6 +540,8 @@ tnoremap <C-O> <C-\><C-N><C-O>
 " ===
 " Opening a terminal window
 noremap <LEADER>/ :set splitbelow<CR>:split<CR>:res +10<CR>:term<CR>
+" Add `:Format` command to format current buffer.
+noremap <LEADER>F :Format<CR>:w<CR>
 
 " Paste keybinds
 nnoremap P "+p
