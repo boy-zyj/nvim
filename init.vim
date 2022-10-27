@@ -29,6 +29,11 @@ set shortmess+=c
 set tabstop=4
 set shiftwidth=4
 
+" folds
+set foldmethod=indent
+set foldlevel=99
+set foldenable
+
 " line number
 set number
 set relativenumber
@@ -44,6 +49,8 @@ set relativenumber
 set signcolumn=yes
 
 set mouse=a
+
+set viewoptions=cursor,folds,slash,unix
 
 " ========== plugins
 
@@ -546,6 +553,23 @@ noremap <LEADER>F :Format<CR>:w<CR>
 " Paste keybinds
 nnoremap P "+p
 vnoremap P "+p
+
+" Folding
+" keymaps:
+" za: open/close current fold
+" zc: close current fold
+" zo: open current fold
+" zm: close all folds
+" zM: close all folds recusively
+" zr: open all folds
+" zR: open all folds recusively
+" zd: delete current fold
+" zE: delete all folds
+" zj: jump to next fold
+" zk: jump to previous fold
+" zn: disable folding
+" zN: enable folding
+noremap <silent> <LEADER><LEADER> za
 
 
 """"""""""""""""""""""""""""""
