@@ -522,6 +522,8 @@ xmap <leader>x  <Plug>(coc-convert-snippet)
 " ===
 " === preservim/tagbar
 " ===
+let g:tagbar_width = winwidth(0) / 3
+let g:tagbar_autoclose = 1
 nmap <leader>tt :TagbarToggle<CR>
 
 
