@@ -5,6 +5,7 @@
 - nodejs >= 12.12
 - nvim-treesitter: A C compiler in your path and libstdc++ installed ((Windows users please read this!)[https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support])
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
+- any version of (Universal Ctags)[https://github.com/universal-ctags/ctags].
 
 ### How to Install vim-plug
 

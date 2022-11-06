@@ -118,6 +118,9 @@ Plug 'tpope/vim-fugitive'
 " The plug-in visualizes undo history and makes it easier to browse and switch between different undo branches
 Plug 'mbbill/undotree'
 
+" a class outline viewer for Vim
+Plug 'preservim/tagbar'
+
 " Initialize plugin system
 call plug#end()
 
@@ -515,6 +518,11 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 " Use <leader>x for convert visual selected code to snippet
 xmap <leader>x  <Plug>(coc-convert-snippet)
+
+" ===
+" === preservim/tagbar
+" ===
+nmap <leader>tt :TagbarToggle<CR>
 
 
 " ============= move
