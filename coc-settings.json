@@ -2,6 +2,7 @@
   "snippets.ultisnips.directories": [
     "UltiSnips"
   ],
+  "suggest.noselect": true,
   "languageserver": {
     "bash": {
       "filetypes": ["sh"],
