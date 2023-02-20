@@ -322,10 +322,13 @@ let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'absolutepath', 'modified' ] ]
+      \             [ 'gitbranch', 'readonly', 'absolutepath', 'modified', 'tagbar' ] ]
       \ },
       \ 'component_function': {
       \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ 'component': {
+      \   'tagbar': '%{tagbar#currenttag("%s", "", "f", "nearest")}',
       \ },
       \ }
 
