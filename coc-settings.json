@@ -3,6 +3,7 @@
     "UltiSnips"
   ],
   "suggest.noselect": true,
+  "explorer.file.reveal.whenOpen": true,
   "languageserver": {
     "bash": {
       "filetypes": ["sh"],
@@ -27,7 +28,10 @@
     }
   },
   "pyright.enable": true,
+  "pyright.inlayHints.functionReturnTypes": false,
+  "pyright.inlayHints.variableTypes": false,
   "jedi.enable": false,
+  "explorer.icon.enableNerdfont": true,
   "explorer.file.hiddenRules": {
     "extensions": [
       "o",
@@ -42,5 +46,6 @@
     ]
   },
   "python.formatting.autopep8Path": "/Users/yao/Library/Python/3.9/bin/autopep8",
-  "python.venvPath": "/Users/yao/.venv/"
+  "python.venvPath": "/Users/yao/.venv/",
+  "snippets.ultisnips.pythonPrompt": false
 }

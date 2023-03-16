@@ -29,6 +29,9 @@ set shortmess+=c
 set tabstop=4
 set shiftwidth=4
 
+" search
+set smartcase
+
 " folds
 set foldmethod=indent
 set foldlevel=99
@@ -214,6 +217,7 @@ require('telescope').setup {
     project = {
       base_dirs = {
         '~/Documents/github',
+        '~/Documents/playhouse',
         -- {'~/dev/src2'},
         -- {'~/dev/src3', max_depth = 4},
         -- {path = '~/dev/src4'},
@@ -525,8 +529,9 @@ xmap <leader>x  <Plug>(coc-convert-snippet)
 " ===
 " === preservim/tagbar
 " ===
-let g:tagbar_width = winwidth(0) / 3
+let g:tagbar_width = winwidth(0) / 2.5
 let g:tagbar_autoclose = 1
+let g:tagbar_autofocus = 1
 nmap <leader>tt :TagbarToggle<CR>
 
 
