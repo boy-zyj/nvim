@@ -250,7 +250,7 @@ nnoremap <leader>f? <cmd>lua require('telescope.builtin').builtin()<cr>
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = { "c", "lua", "vim", "help", "query" },
+  ensure_installed = { "c", "lua", "vim", "help", "query", "go", "python" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -272,10 +272,10 @@ require'nvim-treesitter.configs'.setup {
     -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
     -- the name of the parser)
     -- list of language that will be disabled
-    disable = { "rust" },
+    -- disable = { "rust" },
     -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
     disable = function(lang, buf)
-        local max_filesize = 100 * 1024 -- 100 KB
+        local max_filesize = 10 * 1024 * 1024 -- 10 MB
         local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
         if ok and stats and stats.size > max_filesize then
             return true
@@ -557,7 +557,7 @@ xmap <leader>x  <Plug>(coc-convert-snippet)
 " ===
 " === preservim/tagbar
 " ===
-let g:tagbar_width = winwidth(0) / 2.5
+let g:tagbar_width = max([25, winwidth(0) / 3])
 let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
 nmap <leader>tt :TagbarToggle<CR>
