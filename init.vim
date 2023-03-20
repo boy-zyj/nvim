@@ -83,17 +83,11 @@ Plug 'jiangmiao/auto-pairs'
 " A light and configurable statusline/tabline plugin for Vim
 Plug 'itchyny/lightline.vim'
 
-" colorscheme vim-deus
-Plug 'ajmwagar/vim-deus'
-
 " colorscheme NeoSolarized
 Plug 'overcache/NeoSolarized'
 
-" Oceanic-Next.vim is a neovim theme inspired by Oceanic Next for Sublime
-" Plug 'mhartington/oceanic-next'
-
-" colorscheme gruvbox
-Plug 'morhetz/gruvbox'
+" colorscheme olimorris/onedarkpro.nvim
+Plug 'olimorris/onedarkpro.nvim'
 
 " An efficient fuzzy finder that helps to locate files, buffers, mrus, gtags, etc. on the fly.
 " Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
@@ -103,8 +97,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-project.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
-
-Plug 'ayu-theme/ayu-vim'
 
 " vim-gitgutter
 Plug 'airblade/vim-gitgutter'
@@ -137,45 +129,15 @@ let g:test#basic#start_normal = 1 " If using basic strategy
 
 " ========== colorschemes
 
-" set t_Co=256
+" let g:neosolarized_italic = 1
 " set termguicolors
-" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-" set background=dark    " Setting dark mode
-" colorscheme deus
-" let g:deus_termcolors=256
-
-
-" colorscheme onedark
-
-" colorscheme gruvbox
 " set background=dark
+" colorscheme NeoSolarized
+" hi Normal ctermfg=252 ctermbg=none
 
-" colorscheme monokai_pro
-
-" colorscheme monokai
-" let g:molokai_original = 1
-" let g:rehash256 = 1
-
-" set termguicolors     " enable true colors support
-" let ayucolor="light"  " for light version of theme
-" let ayucolor="mirage" " for mirage version of theme
-" let ayucolor="dark"   " for dark version of theme
-" colorscheme ayu
-
-let g:neosolarized_italic = 1
+" onedarkpro
 set termguicolors
-set background=dark
-colorscheme NeoSolarized
-hi Normal ctermfg=252 ctermbg=none
-
-" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-" if (has("termguicolors"))
-"  set termguicolors
-" endif
-" syntax enable
-" colorscheme OceanicNext
-
+colorscheme onedark_vivid
 
 let g:coc_global_extensions = [
     \ 'coc-json',
