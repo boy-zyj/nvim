@@ -72,7 +72,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
 " Treesitter
-" Plug 'nvim-treesitter/playground'
+Plug 'nvim-treesitter/playground'
 
 " bringing Sublime Text's awesome multiple selection feature into Vim
 Plug 'terryma/vim-multiple-cursors'
