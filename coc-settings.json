@@ -1,51 +1,74 @@
 {
-  "snippets.ultisnips.directories": [
-    "UltiSnips"
-  ],
-  "suggest.noselect": true,
-  "explorer.file.reveal.whenOpen": true,
-  "languageserver": {
-    "bash": {
-      "filetypes": ["sh"],
-	  "command": "bash-language-server",
-	  "args": ["start"],
-	  "ignoredRootPaths": []
-    },
-    "clangd": {
-       "command": "clangd",
-       "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
-       "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
-    },
-    "golang": {
-      "command": "gopls",
-      "rootPatterns": ["go.work", "go.mod", ".vim/", ".git/", ".hg/"],
-      "trace.server": "messages",
-      "disableWorkspaceFolders": true,
-      "filetypes": ["go"],
-      "initializationOptions": {
-        "usePlaceholders": true
-      }
-    }
-  },
-  "pyright.enable": true,
-  "pyright.inlayHints.functionReturnTypes": false,
-  "pyright.inlayHints.variableTypes": false,
-  "jedi.enable": false,
-  "explorer.icon.enableNerdfont": true,
-  "explorer.file.hiddenRules": {
-    "extensions": [
-      "o",
-      "a",
-      "obj",
-      "pyc"
+    "snippets.ultisnips.directories": [
+        "UltiSnips"
     ],
-    "filenames": [],
-    "patternMatches": [
-      "^\\.",
-      "__pycache__"
-    ]
-  },
-  "python.formatting.autopep8Path": "/Users/yao/Library/Python/3.9/bin/autopep8",
-  "python.venvPath": "/Users/yao/.venv/",
-  "snippets.ultisnips.pythonPrompt": false
+    "suggest.noselect": true,
+    "languageserver": {
+        "bash": {
+            "filetypes": [
+                "sh"
+            ],
+            "command": "bash-language-server",
+            "args": [
+                "start"
+            ],
+            "ignoredRootPaths": []
+        },
+        "clangd": {
+            "command": "clangd",
+            "rootPatterns": [
+                "compile_flags.txt",
+                "compile_commands.json"
+            ],
+            "filetypes": [
+                "c",
+                "cc",
+                "cpp",
+                "c++",
+                "objc",
+                "objcpp"
+            ]
+        },
+        "golang": {
+            "command": "gopls",
+            "rootPatterns": [
+                "go.work",
+                "go.mod",
+                ".vim/",
+                ".git/",
+                ".hg/"
+            ],
+            "trace.server": "messages",
+            "disableWorkspaceFolders": true,
+            "filetypes": [
+                "go"
+            ],
+            "initializationOptions": {
+                "usePlaceholders": true
+            }
+        }
+    },
+    "pyright.enable": true,
+    "pyright.inlayHints.functionReturnTypes": false,
+    "pyright.inlayHints.variableTypes": false,
+    "jedi.enable": false,
+    "explorer.icon.enableNerdfont": true,
+    "explorer.toggle": true,
+    "explorer.file.hiddenRules": {
+        "explorer.file.reveal.whenOpen": true,
+        "extensions": [
+            "o",
+            "a",
+            "obj",
+            "pyc"
+        ],
+        "filenames": [],
+        "patternMatches": [
+            "^\\.",
+            "__pycache__"
+        ]
+    },
+    "python.formatting.autopep8Path": "/Users/yao/Library/Python/3.9/bin/autopep8",
+    "python.venvPath": "/Users/yao/.venv/",
+    "snippets.ultisnips.pythonPrompt": false
 }

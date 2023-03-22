@@ -89,6 +89,9 @@ Plug 'overcache/NeoSolarized'
 " colorscheme olimorris/onedarkpro.nvim
 Plug 'olimorris/onedarkpro.nvim'
 
+" colorscheme ishan9299/nvim-solarized-lua
+Plug 'ishan9299/nvim-solarized-lua'
+
 " An efficient fuzzy finder that helps to locate files, buffers, mrus, gtags, etc. on the fly.
 " Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
@@ -115,6 +118,9 @@ Plug 'mbbill/undotree'
 
 " a class outline viewer for Vim
 Plug 'preservim/tagbar'
+
+" Always load the vim-devicons as the very last one.
+Plug 'ryanoasis/vim-devicons'
 
 " Initialize plugin system
 call plug#end()
@@ -313,7 +319,7 @@ nnoremap <LEADER>g= :GitGutterNextHunk<CR>
 " ==
 set showtabline=2
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
+      \ 'colorscheme': 'default',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'absolutepath', 'modified', 'tagbar' ] ]
