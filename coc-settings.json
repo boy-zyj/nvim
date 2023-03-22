@@ -53,6 +53,8 @@
     "pyright.inlayHints.variableTypes": false,
     "jedi.enable": false,
     "explorer.icon.enableNerdfont": true,
+    "explorer.position": "floating",
+    "explorer.quitOnOpen": true,
     "explorer.toggle": true,
     "explorer.file.hiddenRules": {
         "explorer.file.reveal.whenOpen": true,
