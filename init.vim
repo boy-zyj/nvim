@@ -50,6 +50,7 @@ set relativenumber
 "   set signcolumn=yes
 " endif
 set signcolumn=yes
+set cursorline
 
 set mouse=a
 
@@ -142,6 +143,18 @@ let g:test#basic#start_normal = 1 " If using basic strategy
 " hi Normal ctermfg=252 ctermbg=none
 
 " onedarkpro
+lua <<EOF
+-- onedarkpro setup
+require('onedarkpro').setup {
+	options = {
+		cursorline = true,
+		transparency = true,
+		keywords = "bold,italic",
+	}
+}
+
+EOF
+
 set termguicolors
 colorscheme onedark_vivid
 
